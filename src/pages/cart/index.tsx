@@ -1,18 +1,19 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext';
+import { } from '../cart/index.css'
 
 
-export function Cart(){
+export function Cart(){ 
   const { cart, total, addItemCart, removeItemCart } = useContext(CartContext);
 
-  return(
-    <div className="w-full max-w-7xl mx-auto">
-      <h1 className="font-medium text-2xl text-center my-4">Meu carrinho</h1>
+  return(   
+    <div className="w-full max-w-7xl mx-auto ">
+      <h1 className="font-medium text-2xl text-center my-4 text-white">Meu carrinho</h1>
 
       {cart.length === 0 && (
         <div className="flex flex-col items-center justify-center">
-          <p className="font-medium">Ops seu carrinho está vazio...</p>
+          <p className="font-medium text-white">Ops seu carrinho está vazio...</p>
           <Link 
             to="/"
             className="bg-slate-600 my-3 p-1 px-3 text-white font-medium rounded"
@@ -23,7 +24,7 @@ export function Cart(){
       )}
 
       {cart.map( (item) => (
-        <section key={item.id} className="flex items-center justify-between border-b-2 border-gray-300">
+        <section key={item.id} className="flex items-center justify-between border-b-2 border-gray-300 text-white">
           <img
             src={item.cover}
             alt={item.title} 
@@ -60,7 +61,8 @@ export function Cart(){
         </section>
       ))}
 
-      {cart.length !== 0 && <p className="font-bold mt-4">Total: {total}</p> }
+      {cart.length !== 0 && <p className="font-bold mt-4 text-white">Total: {total}</p> }
+      <button className='bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded float-right'>Finalizar Compra!</button>
     </div>
   )
 }

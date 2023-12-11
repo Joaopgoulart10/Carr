@@ -8,7 +8,7 @@ export function Header(){
   const { cartAmount } = useContext(CartContext)
 
   return(
-    <header className="w-full px-1 bg-slate-200">
+    <header className="w-full px-1 bg-gray-500">
       <nav className="w-full max-w-7xl h-14 flex items-center justify-between px-5 mx-auto">
         <Link className="font-bold text-2xl" to="/">
           Dev Shop
